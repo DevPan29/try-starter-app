@@ -1,0 +1,14 @@
+.title {
+  margin-left: 40px;
+  font-size: larger;
+}
+
+.links {
+  margin-right: 40px;
+}
+
+.router-link-active {
+  /* color: darkslateblue !important; */
+  font-weight: bold;
+  text-decoration: underline;
+}
