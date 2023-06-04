@@ -1,0 +1,13 @@
+<div class="beer-list-container">
+  <h3>Beer List Component</h3>
+
+  <div *ngFor="let beerBottle of beerService.beers; let i = index">
+    <p>indice {{i}}</p>
+    <app-beer
+      [beer]="beerBottle"
+      (notifyMe)="onNotificationReceived($event)"
+      >
+
+    </app-beer>
+  </div>
+</div>
