@@ -1,4 +1,4 @@
-<h3>BeerForm Component</h3>
+<h3>BeerForm Component {{isEdit ? 'EDIT MODE' : 'ADD MODE'}}</h3>
 <form  #f="ngForm" (ngSubmit)="submitForm(f)">
 
   <div>
@@ -7,7 +7,7 @@
       class="form-control"
       type="text"
       name="beerName"
-      ngModel
+      [ngModel]="formData.beerName"
       required
       >
       <div *ngIf="(f.controls.beerName?.touched || f.submitted) && f.controls.beerName?.errors?.required">
@@ -21,7 +21,7 @@
       class="form-control"
       type="text"
       name="upc"
-      ngModel
+      [(ngModel)]="formData.upc"
       required
       >
       <div *ngIf="(f.controls.upc?.touched || f.submitted) && f.controls.upc?.errors?.required">
@@ -35,7 +35,7 @@
       class="form-control"
       type="number"
       name="price"
-      ngModel
+      [(ngModel)]="formData.price"
       required
       >
       <div *ngIf="(f.controls.price?.touched || f.submitted) && f.controls.price?.errors?.required">
@@ -48,7 +48,7 @@
     <select
       name="beerStyle"
       class="form-select"
-      ngModel
+      [(ngModel)]="formData.beerStyle"
       required
       >
       <option value="" disabled selected>Choose your style</option>

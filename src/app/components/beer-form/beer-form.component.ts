@@ -1,9 +1,9 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { Beer, allBeerTypes } from '../../models/beer.model';
 import { Component, OnInit } from '@angular/core';
 
 import { BeerService } from '../../beer.service';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-beer-form',
@@ -12,11 +12,42 @@ import { Router } from '@angular/router';
 })
 export class BeerFormComponent implements OnInit {
 
-  beerStyles = allBeerTypes;
+  formData: any = {
+    beerName: '',
+    upc: '',
+    price: '',
+    beerStyle: ''
+  }
 
-  constructor(private beerService: BeerService, private router: Router ) { }
+  isEdit: boolean = false;
+  beerStyles = allBeerTypes;
+  beerToEdit?: Beer;
+
+  constructor(private beerService: BeerService, private router: Router, private activatedRoute: ActivatedRoute ) { }
 
   ngOnInit(): void {
+
+    this.isEdit = this.activatedRoute.snapshot.url[0].path == 'edit';
+    if (this.isEdit) {
+      const beerId = +this.activatedRoute.snapshot.params.id;
+      console.log(`beerId to edit ${beerId}`);
+      this.beerToEdit = this.beerService.getBeerById(beerId);
+      if (this.beerToEdit) {
+        this.setEditMode(this.beerToEdit);
+      } else {
+        this.router.navigate(['/list'])
+      }
+    }
+
+  }
+
+  setEditMode(beer: Beer) {
+    this.formData = {
+      beerName: beer.beerName,
+      upc: beer.upc,
+      price: beer.price,
+      beerStyle: beer.beerStyle
+    }
   }
 
   submitForm(form: NgForm) {
@@ -27,18 +58,22 @@ export class BeerFormComponent implements OnInit {
 
       const beerFromForm = form.value;
       const beerToAdd: Beer = {
-        id: this.beerService.generateId(),
         beerName: beerFromForm.beerName,
         beerStyle: beerFromForm.beerStyle,
         upc: beerFromForm.upc,
         price: beerFromForm.price,
-        createdDate: new Date(),
+        id: this.isEdit ? this.beerToEdit!.id : this.beerService.generateId(),
+        createdDate: this.isEdit ? this.beerToEdit!.createdDate : new Date(),
         lastModifiedDate: new Date()
       }
 
       console.log(beerToAdd);
 
-      this.beerService.addBeer(beerToAdd)
+      if (this.isEdit) {
+        this.beerService.updateBeer(beerToAdd)
+      } else {
+        this.beerService.addBeer(beerToAdd)
+      }
       this.router.navigate(['/list'])
 
 
