@@ -12,6 +12,7 @@ export class BeerComponent implements OnInit {
 
   @Input() beer: Beer;
   @Output() notifyMe: EventEmitter<Beer> = new EventEmitter<Beer>();
+  @Output() deleteBeer: EventEmitter<Beer> = new EventEmitter<Beer>();
 
   constructor() { }
 
@@ -20,6 +21,10 @@ export class BeerComponent implements OnInit {
 
   onNotifyMe() {
     this.notifyMe.emit(this.beer)
+  }
+
+  onDeleteBeer() {
+    this.deleteBeer.emit(this.beer)
   }
 
 }

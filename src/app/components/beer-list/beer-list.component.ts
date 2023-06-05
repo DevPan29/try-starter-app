@@ -23,4 +23,9 @@ export class BeerListComponent implements OnInit {
     window.alert(`Notification IN SALE alert, for beer ${beer.beerName}, Activated`)
   }
 
+  onDeleteBeer(beer: Beer) {
+    // console.log(`beer to delete ${JSON.stringify(beer)}`)
+    this.beerService.deleteBeer(beer)
+  }
+
 }

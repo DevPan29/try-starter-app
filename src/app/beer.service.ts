@@ -10,6 +10,10 @@ export class BeerService {
 
   constructor() { }
 
+  deleteBeer(beerToDelete: Beer) {
+    this.beers = this.beers.filter((beer) => beer.id != beerToDelete.id )
+  }
+
 }
 
 const beersData: Beer[] = [
