@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
-import { Beer } from 'src/app/models/beer.model';
-import { BeerStyle } from '../../models/beer.model';
+import { Beer } from '../../models/beer.model';
 
 @Component({
   selector: 'app-beer',
