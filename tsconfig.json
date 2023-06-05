@@ -7,7 +7,7 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": false,
+    "noPropertyAccessFromIndexSignature": false, // false value permit to access object as an array in the template. useful for formControl.errors
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
@@ -22,7 +22,7 @@
       "es2020",
       "dom"
     ],
-    "strictPropertyInitialization": false,
+    "strictPropertyInitialization": false, // this option avoid to init a property or add ! to it
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
