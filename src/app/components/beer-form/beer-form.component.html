@@ -2,7 +2,7 @@
 <form  #f="ngForm" (ngSubmit)="submitForm(f)">
 
   <div>
-    <label for="name">Beer name*</label>
+    <label for="name">Beer name *</label>
     <input
       class="form-control"
       type="text"
@@ -14,8 +14,53 @@
         Campo obbligatorio.
       </div>
   </div>
+
+  <div>
+    <label for="name">UPC *</label>
+    <input
+      class="form-control"
+      type="text"
+      name="upc"
+      ngModel
+      required
+      >
+      <div *ngIf="(f.controls.upc?.touched || f.submitted) && f.controls.upc?.errors?.required">
+        Campo obbligatorio.
+      </div>
+  </div>
+
+  <div>
+    <label for="name">Price *</label>
+    <input
+      class="form-control"
+      type="number"
+      name="price"
+      ngModel
+      required
+      >
+      <div *ngIf="(f.controls.price?.touched || f.submitted) && f.controls.price?.errors?.required">
+        Campo obbligatorio.
+      </div>
+  </div>
+
+  <div>
+    <label for="beerStyle">Style *</label>
+    <select
+      name="beerStyle"
+      class="form-select"
+      ngModel
+      required
+      >
+      <option value="" disabled selected>Choose your style</option>
+      <option *ngFor="let beerStyle of beerStyles" [ngValue]="beerStyle">{{beerStyle}}</option>
+    </select>
+    <div *ngIf="(f.controls.beerStyle?.touched || f.submitted) && f.controls.beerStyle?.errors?.required">
+      Campo obbligatorio.
+    </div>
+  </div>
   <button
     class="btn btn-primary"
     type="submit"
-    style="margin-top:24px;">SUBMIT</button>
+    style="margin-top:24px;"
+    >SUBMIT</button>
 </form>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Beer } from 'src/app/models/beer.model';
 import { BeerService } from 'src/app/beer.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-beer-list',
@@ -12,7 +13,7 @@ export class BeerListComponent implements OnInit {
 
   // beerService: BeerService;
 
-  constructor(public beerService: BeerService) {
+  constructor(public beerService: BeerService, private router: Router) {
     // this.beerService = new BeerService();
   }
 
@@ -26,6 +27,11 @@ export class BeerListComponent implements OnInit {
   onDeleteBeer(beer: Beer) {
     // console.log(`beer to delete ${JSON.stringify(beer)}`)
     this.beerService.deleteBeer(beer)
+  }
+
+  onEditBeer(beer: Beer) {
+    console.log(`Beer to edit ${JSON.stringify(beer)}`)
+    this.router.navigate(['/edit', beer.id.toString()])
   }
 
 }

@@ -10,6 +10,15 @@ export class BeerService {
 
   constructor() { }
 
+  generateId() {
+    const maxId = Math.max(...this.beers.map((beer) => beer.id))
+    return maxId + 1;
+  }
+
+  addBeer(beerToAdd: Beer) {
+    this.beers.unshift(beerToAdd)
+  }
+
   deleteBeer(beerToDelete: Beer) {
     this.beers = this.beers.filter((beer) => beer.id != beerToDelete.id )
   }

@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: '', redirectTo:'list', pathMatch: 'full'},
   { path: 'list', component: BeerListComponent},
   { path: 'add', component: BeerFormComponent},
+  { path: 'edit/:id', component: BeerFormComponent},
 ];
 
 @NgModule({
