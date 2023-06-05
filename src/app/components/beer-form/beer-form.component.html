@@ -1,1 +1,21 @@
-<p>beer-form works!</p>
+<h3>BeerForm Component</h3>
+<form  #f="ngForm" (ngSubmit)="submitForm(f)">
+
+  <div>
+    <label for="name">Beer name*</label>
+    <input
+      class="form-control"
+      type="text"
+      name="beerName"
+      ngModel
+      required
+      >
+      <div *ngIf="(f.controls.beerName?.touched || f.submitted) && f.controls.beerName?.errors?.required">
+        Campo obbligatorio.
+      </div>
+  </div>
+  <button
+    class="btn btn-primary"
+    type="submit"
+    style="margin-top:24px;">SUBMIT</button>
+</form>
