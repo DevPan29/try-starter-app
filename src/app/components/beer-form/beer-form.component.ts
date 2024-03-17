@@ -2,7 +2,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Beer, allBeerTypes } from '../../models/beer.model';
 import { Component, OnInit } from '@angular/core';
 
-import { BeerService } from '../../beer.service';
+import { BeerService } from '../../services/beer.service';
 import { NgForm } from '@angular/forms';
 
 @Component({
