@@ -1,3 +1,5 @@
+import { InjectionToken } from '@angular/core';
+
 export type VendorType =
   | 'MANUFACTURER'
   | 'WHOLESALER'
@@ -9,3 +11,5 @@ export interface Vendor {
   name: string;
   type: VendorType;
 }
+
+export const READABLE_VENDOR_TYPES_MAP = new InjectionToken<Record<VendorType, string>>('READABLE_VENDOR_TYPES_MAP');
