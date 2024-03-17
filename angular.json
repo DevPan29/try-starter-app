@@ -91,10 +91,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "try-starter-app:build:production"
+              "buildTarget": "try-starter-app:build:production"
             },
             "development": {
-              "browserTarget": "try-starter-app:build:development"
+              "buildTarget": "try-starter-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -102,7 +102,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "try-starter-app:build"
+            "buildTarget": "try-starter-app:build"
           }
         }
       }
