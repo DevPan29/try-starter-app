@@ -1,7 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 
 import * as VendorInteractionActions from './vendor-interaction.actions';
-import { Vendor } from '../models/vendor.model';
+import { Vendor } from '../../models/vendor.model';
 
 export interface VendorInteractionState {
   chosenVendor: Vendor | null

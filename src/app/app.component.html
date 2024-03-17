@@ -21,6 +21,12 @@
 </nav>
 
 <div class="container">
+  @if(!!chosenVendor()) {
+    <article>
+      <p>{{ chosenVendor() | json }}</p>
+      <button (click)="deselectVendor()">Clear</button>
+    </article>
+  }
   <router-outlet></router-outlet>
 </div>
 

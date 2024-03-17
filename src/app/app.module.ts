@@ -11,7 +11,7 @@ import { BeerListComponent } from './components/beer-list/beer-list.component';
 import { VendorSearchComponent } from './components/vendor-search/vendor-search.component';
 import { CONFIG } from './models/config.model';
 import { READABLE_VENDOR_TYPES_MAP, VendorType } from './models/vendor.model';
-import { vendorInteractionReducer } from './state/vendor-interaction.reducer';
+import { vendorInteractionReducer } from './state/vendor-interaction/vendor-interaction.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
