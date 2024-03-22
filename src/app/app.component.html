@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-5">
-  <a class="navbar-brand" routerLink="/">My Beer App</a>
+  <a class="navbar-brand" routerLink="/">My Beer App</a> {{ queryValue$ | async }}
 
   <div class="navbar-nav links">
     <a
@@ -17,6 +17,11 @@
     routerLink="/vendors"
     routerLinkActive="router-link-active"
     >Vendors</a>
+    <a
+    class="nav-item nav-link"
+    routerLink="/vendor-recap"
+    routerLinkActive="router-link-active"
+    >Vendor recap</a>
   </div>
 </nav>
 
